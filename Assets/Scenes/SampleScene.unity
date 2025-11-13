@@ -443,11 +443,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d79a606086f2d944a813e6a1328b7de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 3.5
   groundDrag: 5
-  jumpForce: 7
+  jumpForce: 6
   jumpCooldown: 0
-  airMultiplier: 0.4
+  airMultiplier: 0.5
   jumpKey: 32
   playerHeight: 2
   isGround:
