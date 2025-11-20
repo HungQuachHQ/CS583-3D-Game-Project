@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 5751121626575550612}
   - component: {fileID: 3233350447866211397}
   - component: {fileID: 4177803072806671873}
+  - component: {fileID: 8128612995450070422}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -367,5 +368,22 @@ MonoBehaviour:
   maxHealth: 100
   playerHealth: 0
   currentHealth: 0
+  slider: {fileID: 0}
   isHurt: 0
   isDead: 0
+--- !u!114 &8128612995450070422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285061821413105254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30300b914302cc94aa7bac1480811719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armAnimator: {fileID: 0}
+  attackTime: 1
+  damage: 25
+  staffCollider: {fileID: 0}

@@ -26,8 +26,9 @@ public class EnemyHealth : MonoBehaviour {
             isHurt = false;
         }
 
-        if (health <= 0) {
+        if (currentHealth <= 0) {
             isDead = true;
+            Destroy(gameObject);
         }
         else {
             isDead = false;

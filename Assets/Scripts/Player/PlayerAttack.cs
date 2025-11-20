@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
     public Animator armAnimator;
-    public float attackTime;
+    public float attackDuration;
+    public float colliderDuration;
+
+    public bool isAttacking = false;
+
+    public float damage;
+
+    public Collider staffCollider;
 
     void Start() {
         Transform cameraTransform = GameObject.Find("PlayerCamera").transform;
@@ -14,19 +21,28 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !isAttacking) {
             Attack();
         }
     }
 
     private void Attack() {
         armAnimator.SetBool("isAttacking", true);
+        isAttacking = true;
 
+        StartCoroutine(EnableCollider(staffCollider, colliderDuration));
         StartCoroutine(EndAttack());
     }
 
+    private IEnumerator EnableCollider(Collider col, float duration) {
+        col.enabled = true;
+        yield return new WaitForSeconds(duration);
+        col.enabled = false;
+    }
+
     private IEnumerator EndAttack() {
-        yield return new WaitForSeconds(attackTime);
+        yield return new WaitForSeconds(attackDuration);
         armAnimator.SetBool("isAttacking", false);
+        isAttacking = false;
     }
 }
