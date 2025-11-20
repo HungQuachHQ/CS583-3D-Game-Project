@@ -384,6 +384,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armAnimator: {fileID: 0}
-  attackTime: 1
+  attackDuration: 1
+  colliderDuration: 0.4
+  isAttacking: 0
   damage: 25
   staffCollider: {fileID: 0}
