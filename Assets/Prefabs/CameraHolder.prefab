@@ -254,13 +254,58 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 3ffc1e4111c90104784e58395bc0f20c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6478646648154571293}
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 3ffc1e4111c90104784e58395bc0f20c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 102516226466662967}
   m_SourcePrefab: {fileID: 100100000, guid: 3ffc1e4111c90104784e58395bc0f20c, type: 3}
 --- !u!4 &2842170970029999339 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3ffc1e4111c90104784e58395bc0f20c, type: 3}
   m_PrefabInstance: {fileID: 2842170970030399083}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2842170970030430411 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 3ffc1e4111c90104784e58395bc0f20c, type: 3}
+  m_PrefabInstance: {fileID: 2842170970030399083}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6478646648154571293
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842170970030430411}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.12284578, y: 0.57451427, z: 0.0682871}
+  m_Center: {x: 0.0021299988, y: 1.6366129, z: -0.008174147}
+--- !u!114 &102516226466662967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842170970030430411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438733bce91b6674a8f6dd43eaf525cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1001 &5148738704315759993
 PrefabInstance:
   m_ObjectHideFlags: 0

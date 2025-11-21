@@ -31,12 +31,18 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 moveDirection;
 
     Rigidbody rb;
+    public Animator armAnimator;
 
     private void Start() {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
         readyToJump = true;
+
+        Transform cameraTransform = GameObject.Find("PlayerCamera").transform;
+        Transform armTransform = cameraTransform.Find("Arms");
+
+        armAnimator = armTransform.GetComponent<Animator>();
     }
 
     private void Update() {
@@ -74,8 +80,16 @@ public class PlayerMovement : MonoBehaviour {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
+        if (horizontalInput != 0 || verticalInput != 0) {
+            armAnimator.SetBool("isWalking", true);
+        }
+        else {
+            armAnimator.SetBool("isWalking", false);
+        }
+
         // When to jump
-        if (Input.GetKeyDown(jumpKey) && readyToJump && grounded) {
+        if (Input.GetKeyDown(jumpKey) && readyToJump && grounded)
+        {
             readyToJump = false;
             Jump();
             Invoke(nameof(ResetJump), jumpCooldown);
