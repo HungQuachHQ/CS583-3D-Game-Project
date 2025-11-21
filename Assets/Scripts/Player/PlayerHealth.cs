@@ -43,4 +43,8 @@ public class PlayerHealth : MonoBehaviour {
             isDead = false;
         }
     }
+
+    public void TakeDamage(float damage) {
+        currentHealth -= damage;
+    }
 }

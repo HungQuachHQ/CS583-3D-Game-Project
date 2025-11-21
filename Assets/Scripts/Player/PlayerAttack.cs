@@ -11,8 +11,6 @@ public class PlayerAttack : MonoBehaviour {
 
     public float damage;
 
-    public Collider staffCollider;
-
     void Start() {
         Transform cameraTransform = GameObject.Find("PlayerCamera").transform;
         Transform armTransform = cameraTransform.Find("Arms");
@@ -29,15 +27,7 @@ public class PlayerAttack : MonoBehaviour {
     private void Attack() {
         armAnimator.SetBool("isAttacking", true);
         isAttacking = true;
-
-        StartCoroutine(EnableCollider(staffCollider, colliderDuration));
         StartCoroutine(EndAttack());
-    }
-
-    private IEnumerator EnableCollider(Collider col, float duration) {
-        col.enabled = true;
-        yield return new WaitForSeconds(duration);
-        col.enabled = false;
     }
 
     private IEnumerator EndAttack() {

@@ -27,11 +27,16 @@ public class EnemyHealth : MonoBehaviour {
         }
 
         if (currentHealth <= 0) {
+            Debug.Log(gameObject.name + " is dead");
             isDead = true;
             Destroy(gameObject);
         }
         else {
             isDead = false;
         }
+    }
+
+    public void TakeDamage(float damage) {
+        currentHealth -= damage;
     }
 }
