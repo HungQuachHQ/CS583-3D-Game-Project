@@ -3183,6 +3183,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3233350447866211397, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
+      propertyPath: armAnimator
+      value: 
+      objectReference: {fileID: 7699597335443872540}
     - target: {fileID: 4177803072806671873, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
       propertyPath: slider
       value: 
@@ -3227,6 +3231,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8128612995450070422, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
+      propertyPath: armAnimator
+      value: 
+      objectReference: {fileID: 7699597335443872540}
     - target: {fileID: 8285061821413105254, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3236,6 +3244,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
+--- !u!1 &849278060086475153 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8285061821413105254, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
+  m_PrefabInstance: {fileID: 849278060086475152}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1946582350121997265
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3367,6 +3380,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 102516226466662967, guid: 80a41ba5eb77f4e34841fcef397c457f, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 849278060086475153}
     - target: {fileID: 1337419396681364944, guid: 80a41ba5eb77f4e34841fcef397c457f, type: 3}
       propertyPath: m_Name
       value: CameraHolder
@@ -3424,6 +3441,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a41ba5eb77f4e34841fcef397c457f, type: 3}
+--- !u!95 &7699597335443872540 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1592421846342107368, guid: 80a41ba5eb77f4e34841fcef397c457f, type: 3}
+  m_PrefabInstance: {fileID: 7699597335443872539}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8031752844058424929
 PrefabInstance:
   m_ObjectHideFlags: 0
