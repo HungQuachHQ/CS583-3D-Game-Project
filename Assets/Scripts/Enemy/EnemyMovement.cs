@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
                 animator.SetBool("isWalking", true);
 
                 // Rotate towards the player.
-                if (direction != Vector3.zero) {
+                if (direction != Vector3.zero && !healthStatus.isDead) {
                     Quaternion rotateTowards = Quaternion.LookRotation(direction, Vector3.up);
                     transform.rotation = Quaternion.Slerp(transform.rotation, rotateTowards, 10f * Time.deltaTime);
                 }
