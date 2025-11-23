@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
+    Animator animator;
+
     public float health;
     public float currentHealth;
 
@@ -10,6 +12,8 @@ public class EnemyHealth : MonoBehaviour {
     public bool isDead;
 
     void Start() {
+        animator = GetComponent<Animator>();
+
         currentHealth = health;
     }
 
@@ -29,7 +33,7 @@ public class EnemyHealth : MonoBehaviour {
         if (currentHealth <= 0) {
             Debug.Log(gameObject.name + " is dead");
             isDead = true;
-            Destroy(gameObject);
+            animator.SetTrigger("isDead");
         }
         else {
             isDead = false;
