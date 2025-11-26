@@ -212,9 +212,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 2
   player: {fileID: 0}
+  desiredRotation: {x: 0, y: 0, z: 0, w: 0}
   detectionRange: 10
   distanceBetween: 0
-  stopDistance: 1.5
+  stopDistance: 1.775
+  rotationSpeed: 5
 --- !u!114 &2754579568240004952
 MonoBehaviour:
   m_ObjectHideFlags: 0

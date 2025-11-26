@@ -76,7 +76,7 @@ public class EnemyMovement : MonoBehaviour
     //}
 
     private bool canMove() {
-        if (healthStatus.isDead || attackStatus.isAttacking) {
+        if (healthStatus.isDead) {
             return false;
         }
         else {

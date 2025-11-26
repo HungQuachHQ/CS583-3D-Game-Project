@@ -51,7 +51,7 @@ public class EnemyAttack : MonoBehaviour {
         //}
 
         isAttacking = true;
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("isAttacking");
         attackBlocked = true;
 
         StartCoroutine(DelayAttack());
