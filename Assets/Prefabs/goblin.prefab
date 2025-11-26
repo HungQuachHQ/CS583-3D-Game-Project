@@ -84,6 +84,10 @@ PrefabInstance:
       value: goblin
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0eab31e1cb029a945828c0964db502ff, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0eab31e1cb029a945828c0964db502ff, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -172,9 +176,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &3125567632190435378
 CapsuleCollider:
   m_ObjectHideFlags: 0
