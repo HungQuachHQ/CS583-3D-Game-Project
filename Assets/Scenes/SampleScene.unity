@@ -364,6 +364,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2359941356379664444, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4177803072806671873, guid: d7bcaa8d2f62e44af98ce82af35bb71c, type: 3}
       propertyPath: slider
       value: 
