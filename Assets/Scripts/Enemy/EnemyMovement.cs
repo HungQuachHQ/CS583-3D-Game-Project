@@ -9,26 +9,31 @@ public class EnemyMovement : MonoBehaviour
     Animator animator;
 
     private EnemyHealth healthStatus;
+    private EnemyAttack attackStatus;
 
     // use to chase player
     [SerializeField] GameObject player;
     //Transform target;
     Vector3 moveDirection;
     Vector3 direction;
+    public Quaternion desiredRotation;
 
     public float detectionRange;
     public float distanceBetween;
     public float stopDistance;
 
+    public float rotationSpeed = 1f;
+
     void Awake() {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         healthStatus = GetComponent<EnemyHealth>();
+        attackStatus = GetComponent<EnemyAttack>();
     }
 
     void Start() {
         player = GameObject.Find("Player");
-        //target = player.transform;
+        desiredRotation = transform.rotation;
     }
 
     void Update() {
@@ -40,18 +45,18 @@ public class EnemyMovement : MonoBehaviour
         direction = player.transform.position - transform.position;
         direction.y = 0;    // To prevent from flying or jumping when chasing player.
 
+        // Rotate towards the player.
+        desiredRotation = Quaternion.LookRotation(direction, Vector3.up);
+        if (distanceBetween < detectionRange && direction != Vector3.zero && !healthStatus.isDead) {
+            rb.MoveRotation(Quaternion.Slerp(rb.rotation, desiredRotation, rotationSpeed * Time.fixedDeltaTime));
+        }
+
         if ((distanceBetween < detectionRange) && canMove()) {
             if (direction.magnitude > stopDistance) {
                 moveDirection = direction.normalized;
                 rb.velocity = new Vector3(moveDirection.x * movementSpeed, rb.velocity.y, moveDirection.z * movementSpeed);
 
                 animator.SetBool("isWalking", true);
-
-                // Rotate towards the player.
-                if (direction != Vector3.zero && !healthStatus.isDead) {
-                    Quaternion rotateTowards = Quaternion.LookRotation(direction, Vector3.up);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, rotateTowards, 10f * Time.deltaTime);
-                }
             }
             else {
                 rb.velocity = new Vector3(0, rb.velocity.y, 0);
@@ -65,17 +70,13 @@ public class EnemyMovement : MonoBehaviour
     }
 
     //void FixedUpdate() {
-    //    if (target) {
-    //        animator.SetBool("isWalking", true);
-
-    //        Vector3 velocity = moveDirection * movementSpeed;
-    //        velocity.y = rb.velocity.y; // attatchs it to gravity if rb gravity is checked
-    //        rb.velocity = velocity;
+    //    if (distanceBetween <= attackStatus.attackRange && !attackStatus.isAttacking && direction != Vector3.zero && !healthStatus.isDead) {
+    //        rb.MoveRotation(Quaternion.Slerp(rb.rotation, desiredRotation, rotationSpeed * Time.fixedDeltaTime));
     //    }
     //}
 
     private bool canMove() {
-        if (healthStatus.isDead) {
+        if (healthStatus.isDead || attackStatus.isAttacking) {
             return false;
         }
         else {
