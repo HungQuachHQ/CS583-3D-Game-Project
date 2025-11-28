@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartMenuController : MonoBehaviour {
     public void OnStartClick() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void OnQuitClick() {
