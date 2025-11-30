@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
+    [SerializeField] private AudioClip hurtSFX;
+
     public float maxHealth;
     public float playerHealth;
     public float currentHealth;
@@ -46,5 +48,10 @@ public class PlayerHealth : MonoBehaviour {
 
     public void TakeDamage(float damage) {
         currentHealth -= damage;
+        PlayHurtSFX();
+    }
+
+    private void PlayHurtSFX() {
+        SoundManager.instance.PlaySound(hurtSFX);
     }
 }

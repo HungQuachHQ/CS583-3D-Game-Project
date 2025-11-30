@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
-{
+public class EnemyMovement : MonoBehaviour {
+    [SerializeField] private AudioClip walkSFX;
+
     [SerializeField] private float movementSpeed = 1f;
     Rigidbody rb;
     Animator animator;
 
     private EnemyHealth healthStatus;
-    private EnemyAttack attackStatus;
 
     // use to chase player
     [SerializeField] GameObject player;
@@ -27,8 +27,8 @@ public class EnemyMovement : MonoBehaviour
     void Awake() {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        
         healthStatus = GetComponent<EnemyHealth>();
-        attackStatus = GetComponent<EnemyAttack>();
     }
 
     void Start() {
@@ -69,12 +69,6 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    //void FixedUpdate() {
-    //    if (distanceBetween <= attackStatus.attackRange && !attackStatus.isAttacking && direction != Vector3.zero && !healthStatus.isDead) {
-    //        rb.MoveRotation(Quaternion.Slerp(rb.rotation, desiredRotation, rotationSpeed * Time.fixedDeltaTime));
-    //    }
-    //}
-
     private bool canMove() {
         if (healthStatus.isDead) {
             return false;
@@ -82,5 +76,9 @@ public class EnemyMovement : MonoBehaviour
         else {
             return true;
         }
+    }
+
+    public void PlayWalkSFX() {
+        SoundManager.instance.PlaySound(walkSFX);
     }
 }

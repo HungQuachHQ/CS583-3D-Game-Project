@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour {
+    [SerializeField] private AudioClip attackSFX;
     public Animator armAnimator;
+    
     public float attackDuration;
     public float colliderDuration;
 
@@ -25,6 +27,7 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     private void Attack() {
+        PlayAttackSFX();
         armAnimator.SetBool("isAttacking", true);
         isAttacking = true;
         StartCoroutine(EndAttack());
@@ -34,5 +37,9 @@ public class PlayerAttack : MonoBehaviour {
         yield return new WaitForSeconds(attackDuration);
         armAnimator.SetBool("isAttacking", false);
         isAttacking = false;
+    }
+
+    private void PlayAttackSFX() {
+        SoundManager.instance.PlaySound(attackSFX);
     }
 }

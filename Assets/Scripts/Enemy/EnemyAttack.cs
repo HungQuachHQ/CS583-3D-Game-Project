@@ -67,7 +67,7 @@ public class EnemyAttack : MonoBehaviour {
         Collider[] player = Physics.OverlapSphere(attackPoint.transform.position, radius, players);
 
         foreach (Collider playerGameObject in player) {
-            playerGameObject.GetComponent<PlayerHealth>().currentHealth -= damage;
+            playerGameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 

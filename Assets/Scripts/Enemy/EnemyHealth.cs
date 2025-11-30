@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
-    Rigidbody rb;
+    [SerializeField] private AudioClip hurtSFX;
+    [SerializeField] private AudioClip deathSFX;
+
     Animator animator;
 
     public float health;
@@ -13,7 +15,6 @@ public class EnemyHealth : MonoBehaviour {
     public bool isDead;
 
     void Start() {
-        rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
 
         currentHealth = health;
@@ -26,7 +27,7 @@ public class EnemyHealth : MonoBehaviour {
     private void HandleHealth() {
         if (health < currentHealth && !isDead) {
             currentHealth = health;
-            isHurt = true;  
+            isHurt = true;
         }
         else {
             isHurt = false;
@@ -46,5 +47,14 @@ public class EnemyHealth : MonoBehaviour {
 
     public void TakeDamage(float damage) {
         currentHealth -= damage;
+        PlayHurtSFX();
+    }
+
+    private void PlayHurtSFX() {
+        SoundManager.instance.PlaySound(hurtSFX);
+    }
+
+    private void PlayDeathSFX() { 
+        SoundManager.instance.PlaySound(deathSFX);
     }
 }
