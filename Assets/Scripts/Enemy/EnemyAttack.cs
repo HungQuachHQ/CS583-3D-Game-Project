@@ -18,11 +18,9 @@ public class EnemyAttack : MonoBehaviour {
     private bool attackBlocked;
 
     private EnemyHealth healthStatus;
-    private EnemyMovement movementStatus;
 
     private void Start() {
        healthStatus = GetComponent<EnemyHealth>();
-       movementStatus = GetComponent<EnemyMovement>();
        animator = GetComponent<Animator>();
        player = GameObject.Find("Player");
     }
@@ -43,12 +41,6 @@ public class EnemyAttack : MonoBehaviour {
         if (attackBlocked) {
             return;
         }
-
-        //Vector3 direction = player.transform.position - transform.position;
-        //direction.y = 0;
-        //if (direction != Vector3.zero) { 
-        //    movementStatus.desiredRotation = Quaternion.LookRotation(direction, Vector3.up);
-        //}
 
         isAttacking = true;
         animator.SetTrigger("isAttacking");

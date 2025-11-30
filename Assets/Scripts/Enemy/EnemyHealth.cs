@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField] private AudioClip hurtSFX;
     [SerializeField] private AudioClip deathSFX;
 
+    [SerializeField] private EnemyAI enemyAI;
+
     Animator animator;
 
     public float health;
@@ -16,6 +18,7 @@ public class EnemyHealth : MonoBehaviour {
 
     void Start() {
         animator = GetComponent<Animator>();
+        enemyAI = GetComponent<EnemyAI>();
 
         currentHealth = health;
     }
@@ -34,7 +37,7 @@ public class EnemyHealth : MonoBehaviour {
         }
 
         if (currentHealth <= 0) {
-            Debug.Log(gameObject.name + " is dead");
+            //Debug.Log(gameObject.name + " is dead");
             isDead = true;
             animator.SetTrigger("isDead");
 
@@ -45,16 +48,20 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 
-    public void TakeDamage(float damage) {
+    public void TakeDamage(float damage, Transform attacker) {
         currentHealth -= damage;
         PlayHurtSFX();
+
+        if (currentHealth > 0 && enemyAI != null) {
+            enemyAI.OnHitByPlayer(attacker);
+        }
     }
 
     private void PlayHurtSFX() {
         SoundManager.instance.PlaySound(hurtSFX);
     }
 
-    private void PlayDeathSFX() { 
+    public void PlayDeathSFX() { 
         SoundManager.instance.PlaySound(deathSFX);
     }
 }

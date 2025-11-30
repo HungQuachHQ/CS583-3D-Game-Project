@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class StaffDamage : MonoBehaviour {
     public GameObject player;
+    public Transform playerTransform;
     private PlayerAttack playerDamage;
 
     [SerializeField] private Collider staffCollider;
@@ -17,7 +18,7 @@ public class StaffDamage : MonoBehaviour {
         if (other.CompareTag("Enemy")) {
             EnemyHealth enemy = other.gameObject.GetComponent<EnemyHealth>();
             Debug.Log("Enemy hit: " + other.gameObject.name);
-            enemy.TakeDamage(playerDamage.damage);
+            enemy.TakeDamage(playerDamage.damage, playerTransform);
         }
     }
 
