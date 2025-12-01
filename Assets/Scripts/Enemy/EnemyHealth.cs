@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour {
     [SerializeField] private EnemyAI enemyAI;
 
     Animator animator;
+    AudioSource source;
 
     public float health;
     public float currentHealth;
@@ -18,6 +19,7 @@ public class EnemyHealth : MonoBehaviour {
 
     void Start() {
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         enemyAI = GetComponent<EnemyAI>();
 
         currentHealth = health;
@@ -60,10 +62,10 @@ public class EnemyHealth : MonoBehaviour {
     }
 
     private void PlayHurtSFX() {
-        SoundManager.instance.PlaySound(hurtSFX);
+        SoundManager.instance.PlayAudio(hurtSFX, source);
     }
 
     public void PlayDeathSFX() { 
-        SoundManager.instance.PlaySound(deathSFX);
+        SoundManager.instance.PlayAudio(deathSFX, source);
     }
 }

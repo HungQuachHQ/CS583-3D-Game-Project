@@ -32,6 +32,7 @@ public class EnemyAI : MonoBehaviour {
 
     [SerializeField] private AudioClip walkSFX;
     Animator animator;
+    AudioSource source;
     private EnemyHealth healthStatus;
 
     void Start() {
@@ -50,6 +51,7 @@ public class EnemyAI : MonoBehaviour {
         navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
 
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         healthStatus = GetComponent<EnemyHealth>();
     }
 
@@ -67,7 +69,7 @@ public class EnemyAI : MonoBehaviour {
     }
 
     public void PlayWalkSFX() {
-        SoundManager.instance.PlaySound(walkSFX);
+        SoundManager.instance.PlayAudio(walkSFX, source);
     }
 
     private void Chasing() {

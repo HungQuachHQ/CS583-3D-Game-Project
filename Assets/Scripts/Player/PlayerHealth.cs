@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
     [SerializeField] private AudioClip hurtSFX;
+    AudioSource source;
 
     public float maxHealth;
     public float playerHealth;
@@ -15,6 +16,8 @@ public class PlayerHealth : MonoBehaviour {
     public bool isDead = false;
 
     void Start() {
+        source = GetComponent<AudioSource>();
+
         playerHealth = maxHealth;
         currentHealth = maxHealth;
 
@@ -52,6 +55,6 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     private void PlayHurtSFX() {
-        SoundManager.instance.PlaySound(hurtSFX);
+        SoundManager.instance.PlayAudio(hurtSFX, source);
     }
 }

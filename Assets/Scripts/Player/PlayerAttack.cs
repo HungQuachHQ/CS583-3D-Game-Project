@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour {
     [SerializeField] private AudioClip attackSFX;
     public Animator armAnimator;
+    private AudioSource source;
     
     public float attackDuration;
     public float colliderDuration;
@@ -18,6 +19,7 @@ public class PlayerAttack : MonoBehaviour {
         Transform armTransform = cameraTransform.Find("Arms");
 
         armAnimator = armTransform.GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -40,6 +42,6 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     private void PlayAttackSFX() {
-        SoundManager.instance.PlaySound(attackSFX);
+        SoundManager.instance.PlayAudio(attackSFX, source);
     }
 }
