@@ -116,11 +116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -162,6 +162,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonfire
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -171,8 +175,55 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5990600191008763923}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3380525558952605128}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5409016848173551060}
   m_SourcePrefab: {fileID: 100100000, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
+--- !u!1 &143895603681358614 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
+  m_PrefabInstance: {fileID: 954289901005164103}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &3380525558952605128
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143895603681358614}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.005, y: 0.005, z: 0.0025}
+  m_Center: {x: -0.000009110928, y: -0.00001676178, z: 0.0007816673}
+--- !u!114 &5409016848173551060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143895603681358614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb464c2de1a6c134ea2c7328e81464b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bonfireMessage: {fileID: 0}
+  bonfireInterface: {fileID: 0}
+  sceneToLoad: Tutorial
 --- !u!4 &771497513354701228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
