@@ -21,6 +21,10 @@ public class EnemyHealth : MonoBehaviour {
         enemyAI = GetComponent<EnemyAI>();
 
         currentHealth = health;
+        isHurt = false;
+        isDead = false;
+
+        EnemyManager.Instance.RegisterEnemy();
     }
 
     void Update() {
@@ -36,15 +40,13 @@ public class EnemyHealth : MonoBehaviour {
             isHurt = false;
         }
 
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0 && !isDead) {
             //Debug.Log(gameObject.name + " is dead");
             isDead = true;
             animator.SetTrigger("isDead");
 
             gameObject.layer = LayerMask.NameToLayer("Dead Enemies");
-        }
-        else {
-            isDead = false;
+            EnemyManager.Instance.UnregisterEnemy();
         }
     }
 
