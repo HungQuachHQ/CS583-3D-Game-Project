@@ -8,10 +8,15 @@ public class PauseMenuController : MonoBehaviour {
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public BonfireController bonfireController;
 
-    // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (bonfireController != null && bonfireController.IsBonfireOpen) {
+                bonfireController.CloseBonfireUI();
+                return;
+            }
+
             if (GameIsPaused) {
                 Resume();
             }

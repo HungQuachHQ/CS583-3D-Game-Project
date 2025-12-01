@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3879133870233331621}
   - component: {fileID: 8294236671320497898}
   - component: {fileID: 6036270526930349378}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Player Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 764a8747ff39356469ea7d4e6d0e1b3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hurtSFX: {fileID: 8300000, guid: f80833183e427674182ddf048c8bbcde, type: 3}
   maxHealth: 100
   playerHealth: 0
   currentHealth: 0
@@ -405,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30300b914302cc94aa7bac1480811719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSFX: {fileID: 8300000, guid: 938b1c550b7ee4b458ded8948446bf65, type: 3}
   armAnimator: {fileID: 0}
   attackDuration: 1
   colliderDuration: 0.4

@@ -221,7 +221,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb464c2de1a6c134ea2c7328e81464b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bonfireUI: {fileID: 0}
+  bonfireMessage: {fileID: 0}
+  bonfireInterface: {fileID: 0}
+  sceneToLoad: Tutorial
 --- !u!4 &771497513354701228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}

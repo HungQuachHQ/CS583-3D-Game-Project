@@ -38,6 +38,10 @@ public class EnemyMovement : MonoBehaviour {
 
     void Update() {
         HandleMovement();
+
+        if (healthStatus.isDead) {
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+        }
     }
 
     private void HandleMovement() {
