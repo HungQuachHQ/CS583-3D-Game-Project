@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
@@ -9,10 +10,11 @@ public class SoundManager : MonoBehaviour {
 
     private void Awake() {
         instance = this;
-        source = GetComponent<AudioSource>();
     }
 
-    public void PlaySound(AudioClip _sound) {
-        source.PlayOneShot(_sound);
+
+    public void PlayAudio(AudioClip clip, AudioSource soundSource) {
+        source = soundSource;
+        source.PlayOneShot(clip);
     }
 }

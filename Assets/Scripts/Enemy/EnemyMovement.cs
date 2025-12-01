@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour {
     [SerializeField] private float movementSpeed = 1f;
     Rigidbody rb;
     Animator animator;
+    AudioSource source;
 
     private EnemyHealth healthStatus;
 
@@ -27,6 +28,7 @@ public class EnemyMovement : MonoBehaviour {
     void Awake() {
         rb = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
         
         healthStatus = GetComponent<EnemyHealth>();
     }
@@ -83,6 +85,6 @@ public class EnemyMovement : MonoBehaviour {
     }
 
     public void PlayWalkSFX() {
-        SoundManager.instance.PlaySound(walkSFX);
+        SoundManager.instance.PlayAudio(walkSFX, source);
     }
 }
