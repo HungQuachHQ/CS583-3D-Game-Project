@@ -199,6 +199,23 @@ public class EnemyAI : MonoBehaviour {
         }
     }
 
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(transform.position, viewRadius);
+
+        Vector3 leftDir = DirFromAngle(-viewAngle / 2f);
+        Vector3 rightDir = DirFromAngle(viewAngle / 2f);
+
+        Gizmos.DrawLine(transform.position, transform.position + leftDir * viewRadius);
+        Gizmos.DrawLine(transform.position, transform.position + rightDir * viewRadius);
+    }
+
+    private Vector3 DirFromAngle(float angleDegrees) {
+        float rad = (angleDegrees + transform.eulerAngles.y) * Mathf.Deg2Rad;
+        return new Vector3(Mathf.Sin(rad), 0, Mathf.Cos(rad));
+    }
+
     public void OnHitByPlayer(Transform player) {
         Debug.Log("OnHitByPlayer called from: " + player.name);
 
