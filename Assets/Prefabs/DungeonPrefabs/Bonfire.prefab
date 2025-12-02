@@ -116,15 +116,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -105
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -181,6 +181,9 @@ PrefabInstance:
       addedObject: {fileID: 3380525558952605128}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 233882281824429655}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 5409016848173551060}
   m_SourcePrefab: {fileID: 100100000, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
 --- !u!1 &143895603681358614 stripped
@@ -209,6 +212,102 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.005, y: 0.005, z: 0.0025}
   m_Center: {x: -0.000009110928, y: -0.00001676178, z: 0.0007816673}
+--- !u!82 &233882281824429655
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143895603681358614}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 8107db17f15bcb842b8e3b741872aca5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.15
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &5409016848173551060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,7 +322,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bonfireMessage: {fileID: 0}
   bonfireInterface: {fileID: 0}
-  sceneToLoad: Tutorial
+  sceneToLoad: SampleScene
 --- !u!4 &771497513354701228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}
