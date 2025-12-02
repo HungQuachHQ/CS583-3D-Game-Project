@@ -2922,18 +2922,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bonfire
       objectReference: {fileID: 0}
-    - target: {fileID: 233882281824429655, guid: 62187ebc86ef44efdabdb613438c1122, type: 3}
-      propertyPath: Loop
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 233882281824429655, guid: 62187ebc86ef44efdabdb613438c1122, type: 3}
-      propertyPath: m_Volume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 233882281824429655, guid: 62187ebc86ef44efdabdb613438c1122, type: 3}
-      propertyPath: MaxDistance
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 771497513354701228, guid: 62187ebc86ef44efdabdb613438c1122, type: 3}
       propertyPath: m_LocalPosition.x
       value: -105
