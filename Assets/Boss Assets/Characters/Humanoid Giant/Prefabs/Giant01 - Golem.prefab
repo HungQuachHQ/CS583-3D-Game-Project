@@ -7132,7 +7132,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.75
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7286,8 +7286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f329d48bf737144296f835d5674b395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footstepsSFX1: {fileID: 8300000, guid: 884bebc0fdcf39148abfa95c4b21fbb7, type: 3}
-  footstepsSFX2: {fileID: 8300000, guid: 94df0c95c44978743b7db8df6049895b, type: 3}
+  footstepsSFX1: {fileID: 8300000, guid: 0decd8be9e6cc344aa947d53edb95a35, type: 3}
+  footstepsSFX2: {fileID: 8300000, guid: 79b2dc31eccf9874f96c77cdf45a8419, type: 3}
   viewRadius: 20
   viewAngle: 180
   playerMask:
@@ -7315,7 +7315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  attackSFX: {fileID: 8300000, guid: 98e0b019ba90bdb4d8c71104c6a51300, type: 3}
+  attackSFX: {fileID: 8300000, guid: 2d9821af813ca6b4985a2df94edb80e4, type: 3}
   attackParticles: {fileID: 293965311976802470}
   attackPoint: {fileID: 6615585918835046769}
   aoeHalfExtents: {x: 4, y: 0.5, z: 4}
