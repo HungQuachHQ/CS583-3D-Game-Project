@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class BossMovement : MonoBehaviour {
+    AudioSource source;
+    [SerializeField] AudioClip footstepsSFX1;
+    [SerializeField] AudioClip footstepsSFX2;
+
     GameObject player;
     NavMeshAgent agent;
     Animator animator;
@@ -42,6 +46,7 @@ public class BossMovement : MonoBehaviour {
         agent.isStopped = false;
         agent.speed = moveSpeed;
 
+        source = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
 
@@ -117,5 +122,13 @@ public class BossMovement : MonoBehaviour {
                 m_PlayerPosition = player.transform.position;
             }
         }
+    }
+
+    public void PlayWalkSFX1() {
+        SoundManager.instance.PlayAudio(footstepsSFX1, source);
+    }
+
+    public void PlayWalkSFX2() {
+        SoundManager.instance.PlayAudio(footstepsSFX2, source);
     }
 }
