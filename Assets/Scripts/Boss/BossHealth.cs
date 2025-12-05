@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BossHealth : MonoBehaviour {
-    Animator animator;
-    //AudioSource source;
+    AudioSource source;
+    [SerializeField] AudioClip hurtSFX;
+    [SerializeField] AudioClip deathSFX;
 
     public float health;
     public float currentHealth;
@@ -13,7 +14,7 @@ public class BossHealth : MonoBehaviour {
     public bool isDead;
     
     void Start() {
-        animator = GetComponent<Animator>();
+        source = GetComponent<AudioSource>();
 
         currentHealth = health;
         isHurt = false;
@@ -38,14 +39,25 @@ public class BossHealth : MonoBehaviour {
         if (currentHealth <= 0 && !isDead) {
             Debug.Log(gameObject.name + " is dead");
             isDead = true;
-            //animator.SetTrigger("isDead");
+            PlayDeathSFX();
 
             gameObject.layer = LayerMask.NameToLayer("Dead Enemies");
             EnemyManager.Instance.UnregisterEnemy();
         }
     }
-
     public void TakeDamage(float damage) {
         currentHealth -= damage;
+
+        if (currentHealth > 0 && !isDead) {
+            PlayHurtSFX();
+        }
+    }
+
+    public void PlayHurtSFX() {
+        SoundManager.instance.PlayAudio(hurtSFX, source);
+    }
+
+    public void PlayDeathSFX() {
+        SoundManager.instance.PlayAudio(deathSFX, source);
     }
 }
