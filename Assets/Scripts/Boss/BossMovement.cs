@@ -8,6 +8,8 @@ public class BossMovement : MonoBehaviour {
     [SerializeField] AudioClip footstepsSFX1;
     [SerializeField] AudioClip footstepsSFX2;
 
+    private BossHealth bossHealth;
+
     GameObject player;
     NavMeshAgent agent;
     Animator animator;
@@ -50,13 +52,20 @@ public class BossMovement : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         animator = GetComponent<Animator>();
 
+        bossHealth = GetComponent<BossHealth>();
+
         startPosition = transform.position;
     }
 
     void Update() {
         EnvironmentalView();
 
-        Chasing();
+        if (!bossHealth.isDead) {
+            Chasing();
+        }
+        if (bossHealth.isDead) {
+            animator.SetBool("isWalking", false);
+        }
     }
 
     private void Chasing() {

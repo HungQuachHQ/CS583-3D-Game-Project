@@ -8,6 +8,7 @@ public class BossAttack : MonoBehaviour {
     Animator animator;
     public GameObject player;
     private BossMovement bossMovement;
+    private BossHealth bossHealth;
     
     AudioSource source;
     [SerializeField] AudioClip attackSFX;
@@ -32,6 +33,7 @@ public class BossAttack : MonoBehaviour {
         source = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
         bossMovement = GetComponent<BossMovement>();
+        bossHealth = GetComponent<BossHealth>();
     }
 
     void FixedUpdate() {
@@ -49,7 +51,7 @@ public class BossAttack : MonoBehaviour {
         }
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
-        if (distance <= attackRange && !isAttacking) {
+        if (distance <= attackRange && !isAttacking && !bossHealth.isDead) {
             Attack();
         }
     }

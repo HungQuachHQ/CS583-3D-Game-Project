@@ -1087,7 +1087,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hurtSFX: {fileID: 8300000, guid: 41d54b0f10fc57c4fbfd4b7291e9fb35, type: 3}
   deathSFX: {fileID: 8300000, guid: b4f97bc90f1acfd41b98571a537f7463, type: 3}
-  health: 100
+  health: 500
   currentHealth: 0
   isHurt: 0
   isDead: 0
