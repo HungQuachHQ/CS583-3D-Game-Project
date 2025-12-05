@@ -710,10 +710,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1168999850}
-    - target: {fileID: 4318260253526105890, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
-      propertyPath: attackSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 98e0b019ba90bdb4d8c71104c6a51300, type: 3}
     - target: {fileID: 8468617057500289297, guid: d66c23583a584ef4195dbea312c0b2a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10

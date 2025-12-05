@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class BossAttack : MonoBehaviour {
-    [SerializeField] private GameObject attackParticles;
     NavMeshAgent agent;
     Animator animator;
+    public GameObject player;
+    private BossMovement bossMovement;
+    
     AudioSource source;
     [SerializeField] AudioClip attackSFX;
-    public GameObject player;
+    [SerializeField] private GameObject attackParticles;
 
     public GameObject attackPoint;
     public Vector3 aoeHalfExtents = new Vector3(5f, 0.5f, 5f); // x, z = radius, y = height
@@ -29,6 +31,7 @@ public class BossAttack : MonoBehaviour {
         animator = GetComponent<Animator>();
         source = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
+        bossMovement = GetComponent<BossMovement>();
     }
 
     void FixedUpdate() {
@@ -36,14 +39,16 @@ public class BossAttack : MonoBehaviour {
     }
 
     private void AttackRange() {
-        float distance = Vector3.Distance(transform.position, player.transform.position);
         if (isAttacking) {
             agent.updateRotation = false;
+            bossMovement.Stop();
+            
         }
         else {
             agent.updateRotation = true;
         }
 
+        float distance = Vector3.Distance(transform.position, player.transform.position);
         if (distance <= attackRange && !isAttacking) {
             Attack();
         }
@@ -59,7 +64,7 @@ public class BossAttack : MonoBehaviour {
         attackBlocked = true;
 
         StartCoroutine(DelayAttack());
-        StartCoroutine(AnimationDuration());
+        StartCoroutine(Immobilize());
     }
 
     public void AttackDetection() {
@@ -80,7 +85,7 @@ public class BossAttack : MonoBehaviour {
         attackBlocked = false;
     }
 
-    private IEnumerator AnimationDuration() {
+    private IEnumerator Immobilize() {
         yield return new WaitForSeconds(animationDuration);
         isAttacking = false;
     }

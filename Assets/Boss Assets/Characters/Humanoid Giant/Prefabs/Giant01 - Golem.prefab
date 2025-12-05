@@ -77,7 +77,7 @@ ParticleSystemRenderer:
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
-  m_SortMode: 0
+  m_SortMode: 4
   m_MinParticleSize: 0
   m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
@@ -297,7 +297,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -743,7 +743,7 @@ ParticleSystem:
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
-    donutRadius: 0.5
+    donutRadius: 0.75
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 90, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
@@ -825,7 +825,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 1.2
       mode: 0
       spread: 0
       speed:
@@ -883,7 +883,7 @@ ParticleSystem:
           m_RotationOrder: 4
     arc:
       value: 360
-      mode: 0
+      mode: 3
       spread: 0
       speed:
         serializedVersion: 2
@@ -1054,7 +1054,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 60
+        scalar: 100
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -7314,8 +7314,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d4661df66bfbb942a7161ce89e21ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackParticles: {fileID: 293965311976802470}
   player: {fileID: 0}
+  attackSFX: {fileID: 8300000, guid: 98e0b019ba90bdb4d8c71104c6a51300, type: 3}
+  attackParticles: {fileID: 293965311976802470}
   attackPoint: {fileID: 6615585918835046769}
   aoeHalfExtents: {x: 4, y: 0.5, z: 4}
   players:
@@ -7325,7 +7326,7 @@ MonoBehaviour:
   turnSpeed: 8
   attackRange: 5.5
   attackCooldown: 8
-  animationDuration: 3
+  animationDuration: 4
   isAttacking: 0
 --- !u!114 &5444123514970732617
 MonoBehaviour:

@@ -84,14 +84,14 @@ public class BossMovement : MonoBehaviour {
         }
     }
 
-    void Move(float speed) {
+    public void Move(float speed) {
         agent.isStopped = false;
         agent.speed = speed;
 
         animator.SetBool("isWalking", true);
     }
 
-    void Stop() { 
+    public void Stop() { 
         agent.isStopped = true;
         agent.speed = 0;
 
