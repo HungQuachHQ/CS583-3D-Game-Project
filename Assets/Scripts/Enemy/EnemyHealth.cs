@@ -11,6 +11,8 @@ public class EnemyHealth : MonoBehaviour {
     Animator animator;
     AudioSource source;
 
+    public GameObject deathEffect;
+
     public float health;
     public float currentHealth;
 
@@ -47,9 +49,19 @@ public class EnemyHealth : MonoBehaviour {
             isDead = true;
             animator.SetTrigger("isDead");
 
+            StartCoroutine(DestroyEnemy());
+
             gameObject.layer = LayerMask.NameToLayer("Dead Enemies");
             EnemyManager.Instance.UnregisterEnemy();
         }
+    }
+
+    private IEnumerator DestroyEnemy() {
+        yield return new WaitForSeconds(3);
+        EnableDeathEffect();
+
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 
     public void TakeDamage(float damage, Transform attacker) {
@@ -67,5 +79,13 @@ public class EnemyHealth : MonoBehaviour {
 
     public void PlayDeathSFX() { 
         SoundManager.instance.PlayAudio(deathSFX, source);
+    }
+
+    public void EnableDeathEffect() {
+        deathEffect.SetActive(true);
+    }
+
+    public void DisableDeathEffect() { 
+        deathEffect.SetActive(false);
     }
 }

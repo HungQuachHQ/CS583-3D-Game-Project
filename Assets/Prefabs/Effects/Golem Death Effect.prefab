@@ -4900,7 +4900,7 @@ GameObject:
   - component: {fileID: 6643090120920694339}
   - component: {fileID: 1766561146813849633}
   m_Layer: 0
-  m_Name: Gollem Death Effect
+  m_Name: Golem Death Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
