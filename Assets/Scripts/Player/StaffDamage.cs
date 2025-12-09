@@ -20,6 +20,11 @@ public class StaffDamage : MonoBehaviour {
             Debug.Log("Enemy hit: " + other.gameObject.name);
             enemy.TakeDamage(playerDamage.damage, playerTransform);
         }
+        if (other.CompareTag("Boss")) {
+            BossHealth boss = other.gameObject.GetComponent<BossHealth>();
+            Debug.Log("Enemy hit: " + other.gameObject.name);
+            boss.TakeDamage(playerDamage.damage);
+        }
     }
 
     public void EnableStaffCollider() {

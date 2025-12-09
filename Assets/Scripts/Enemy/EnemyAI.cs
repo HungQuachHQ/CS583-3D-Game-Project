@@ -192,8 +192,7 @@ public class EnemyAI : MonoBehaviour {
             if (Vector3.Distance(transform.position, player.position) > viewRadius) {
                 m_PlayerInRange = false;
             }
-            if (m_PlayerInRange)
-            {
+            if (m_PlayerInRange) {
                 m_PlayerPosition = player.transform.position;
             }
         }
