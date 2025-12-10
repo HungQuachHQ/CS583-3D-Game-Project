@@ -10,6 +10,9 @@ public class PauseMenuController : MonoBehaviour {
     public GameObject pauseMenuUI;
     public BonfireController bonfireController;
 
+    public Animator animator;
+    public float fadeTime = 0.5f;
+
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (bonfireController != null && bonfireController.IsBonfireOpen) {
@@ -47,6 +50,16 @@ public class PauseMenuController : MonoBehaviour {
     }
 
     public void LoadMenu() {
+        Time.timeScale = 1f;
+        GameIsPaused = false;
+
+        animator.Play("FadeToBlack");
+
+        StartCoroutine(DelayFade());
+    }
+
+    IEnumerator DelayFade() {
+        yield return new WaitForSeconds(fadeTime);
         SceneManager.LoadScene("Start Screen");
     }
 }
