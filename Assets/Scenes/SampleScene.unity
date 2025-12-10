@@ -2990,7 +2990,7 @@ PrefabInstance:
       objectReference: {fileID: 1141315194}
     - target: {fileID: 102852288194186728, guid: 8fd47c1717e22794bbe7826d5448a60b, type: 3}
       propertyPath: fadeTime
-      value: 1.2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 102852288194186728, guid: 8fd47c1717e22794bbe7826d5448a60b, type: 3}
       propertyPath: bonfireController

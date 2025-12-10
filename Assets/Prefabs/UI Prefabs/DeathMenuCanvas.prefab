@@ -653,7 +653,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   currentScene: Boss Level
   startScene: Start Screen
-  fadeTime: 1.2
+  fadeToBlack: 1
+  fadeToScene: 1
 --- !u!1 &7932674755497738016
 GameObject:
   m_ObjectHideFlags: 0
