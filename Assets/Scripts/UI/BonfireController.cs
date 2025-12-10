@@ -11,6 +11,8 @@ public class BonfireController : MonoBehaviour {
     public bool IsBonfireOpen => bonfireInterface.activeSelf;
 
     public string sceneToLoad;
+    public Animator animator;
+    public float fadeTime = 0.5f;
 
     private void Update() {
         if (!playerInRange) return;
@@ -56,11 +58,17 @@ public class BonfireController : MonoBehaviour {
     }
 
     public void OnNextLevelClick() {
-        SceneManager.LoadScene(sceneToLoad);
+        animator.Play("FadeToBlack");
+        StartCoroutine(DelayFade());
 
         Time.timeScale = 1f;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    IEnumerator DelayFade() {
+        yield return new WaitForSeconds(fadeTime);
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

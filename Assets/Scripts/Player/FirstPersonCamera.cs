@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class FirstPersonCamera : MonoBehaviour {
-    //public Transform player;
-    //public float mouseSensitivity = 2f;
-    //float cameraVerticalRotation = 0f;
-
     public float sensX;
     public float sensY;
 
@@ -19,6 +15,11 @@ public class FirstPersonCamera : MonoBehaviour {
         // Lock and Hide the Cursor
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        // Use the current inspector rotation as the starting direction
+        Vector3 euler = transform.rotation.eulerAngles;
+        xRotation = euler.x;
+        yRotation = euler.y;
     }
 
     void Update() {
@@ -30,15 +31,7 @@ public class FirstPersonCamera : MonoBehaviour {
         xRotation -= inputY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
-
-        // Rotate the Camera around its local X axis
-        //cameraVerticalRotation -= inputY;
-        //cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
-        //transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
-
-        // Rotate the Player Object and the Camera around its Y axis
-        //player.Rotate(Vector3.up * inputX);
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        orientation.rotation = Quaternion.Euler(0f, yRotation, 0f);
     }
 }

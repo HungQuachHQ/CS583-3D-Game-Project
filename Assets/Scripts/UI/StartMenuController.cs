@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class StartMenuController : MonoBehaviour {
+    private StartScreenChanger changer;
+
+    private void Start() {
+        changer = FindObjectOfType<StartScreenChanger>();
+    }
+
     public void OnStartClick() {
-        SceneManager.LoadScene("Tutorial");
+        changer.FadeToWhite();
     }
 
     public void OnQuitClick() {
