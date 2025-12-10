@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour {
     Animator animator;
     public GameObject player;
+    private PlayerHealth playerHealth;
 
     public GameObject attackPoint;
     public float radius;
@@ -23,6 +24,7 @@ public class EnemyAttack : MonoBehaviour {
        healthStatus = GetComponent<EnemyHealth>();
        animator = GetComponent<Animator>();
        player = GameObject.Find("Player");
+       playerHealth = player.GetComponent<PlayerHealth>();
     }
 
     private void FixedUpdate() {
@@ -32,7 +34,7 @@ public class EnemyAttack : MonoBehaviour {
     private void AttackRange() {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        if (distance <= attackRange && !isAttacking && !healthStatus.isDead) {
+        if (distance <= attackRange && !isAttacking && !healthStatus.isDead && !playerHealth.isDead) {
             Attack();
         }
     }

@@ -60,7 +60,7 @@ public class EnemyHealth : MonoBehaviour {
         yield return new WaitForSeconds(3);
         EnableDeathEffect();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.75f);
         Destroy(gameObject);
     }
 

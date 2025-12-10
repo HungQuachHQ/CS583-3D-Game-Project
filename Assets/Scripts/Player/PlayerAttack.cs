@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     void Update() {
-        if (Input.GetMouseButtonDown(0) && !isAttacking) {
+        if (Input.GetMouseButtonDown(0) && !isAttacking && Time.timeScale != 0f) {
             Attack();
         }
     }

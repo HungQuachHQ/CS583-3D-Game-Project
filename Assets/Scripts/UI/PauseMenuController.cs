@@ -9,6 +9,7 @@ public class PauseMenuController : MonoBehaviour {
 
     public GameObject pauseMenuUI;
     public BonfireController bonfireController;
+    public DeathMenuController deathMenuController;
 
     public Animator animator;
     public float fadeTime = 0.5f;
@@ -17,6 +18,9 @@ public class PauseMenuController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             if (bonfireController != null && bonfireController.IsBonfireOpen) {
                 bonfireController.CloseBonfireUI();
+                return;
+            }
+            if (deathMenuController != null && deathMenuController.IsDeathMenuOpen) {
                 return;
             }
 

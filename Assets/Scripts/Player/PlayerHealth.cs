@@ -40,12 +40,8 @@ public class PlayerHealth : MonoBehaviour {
             isHurt = false;
         }
 
-        if (currentHealth <= 0)
-        {
+        if (currentHealth <= 0) {
             isDead = true;
-        }
-        else {
-            isDead = false;
         }
     }
 
