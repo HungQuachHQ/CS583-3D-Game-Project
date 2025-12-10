@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1481933319}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1378,6 +1378,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1629648132}
+    - target: {fileID: 102852288194186728, guid: 8fd47c1717e22794bbe7826d5448a60b, type: 3}
+      propertyPath: fadeTime
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 102852288194186728, guid: 8fd47c1717e22794bbe7826d5448a60b, type: 3}
       propertyPath: bonfireController
       value: 
