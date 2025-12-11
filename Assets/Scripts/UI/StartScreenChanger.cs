@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class StartScreenChanger : MonoBehaviour {
     public Animator animator;
     public float fadeTime = 0.5f;
+    public string sceneToLoad;
     
     public void FadeToWhite () {
         animator.Play("FadeToBlack");
@@ -15,6 +16,6 @@ public class StartScreenChanger : MonoBehaviour {
 
     IEnumerator DelayFade() { 
         yield return new WaitForSeconds(fadeTime);
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

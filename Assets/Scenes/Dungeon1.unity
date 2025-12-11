@@ -3462,6 +3462,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 8701923605292162686}
+    - target: {fileID: 7836893089119143158, guid: 59bead37e416bf44ba5ec34f1fc8ba21, type: 3}
+      propertyPath: currentScene
+      value: Dungeon1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
