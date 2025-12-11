@@ -2237,14 +2237,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeathMenuCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7836893089119143158, guid: 59bead37e416bf44ba5ec34f1fc8ba21, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 1629648132}
-    - target: {fileID: 7836893089119143158, guid: 59bead37e416bf44ba5ec34f1fc8ba21, type: 3}
-      propertyPath: fadeTime
-      value: 1.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2885,6 +2877,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4503156191227038772, guid: 0dae106aead8a2042896567232cc6557, type: 3}
+      propertyPath: health
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3084,7 +3080,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!224 &1359594986
 RectTransform:
@@ -4095,6 +4091,53 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5600868903068211388, guid: 984b82fdbe7bbe54e86f1f0a408439a3, type: 3}
   m_PrefabInstance: {fileID: 1667541379}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1694672702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1694672703}
+  - component: {fileID: 1694672704}
+  m_Layer: 0
+  m_Name: EndingManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1694672703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694672702}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1694672704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694672702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53528610bae0e4a43864a338c2f7b7f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: End Screen
+  waitTime: 3
+  fadeTime: 1
 --- !u!4 &1704915899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5600868903068211388, guid: 984b82fdbe7bbe54e86f1f0a408439a3, type: 3}
@@ -4877,3 +4920,4 @@ SceneRoots:
   - {fileID: 227711207}
   - {fileID: 1395856850}
   - {fileID: 1145980998}
+  - {fileID: 1694672703}

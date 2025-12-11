@@ -14,6 +14,10 @@ public class BonfireController : MonoBehaviour {
     public Animator animator;
     public float fadeTime = 0.5f;
 
+    private void Start() {
+        animator = GameObject.Find("FadeToBlack").GetComponent<Animator>();
+    }
+
     private void Update() {
         if (!playerInRange) return;
         if (!EnemyManager.Instance.AllEnemiesDefeated()) return;

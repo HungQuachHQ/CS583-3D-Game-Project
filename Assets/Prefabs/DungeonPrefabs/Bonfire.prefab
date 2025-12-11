@@ -324,7 +324,7 @@ MonoBehaviour:
   bonfireInterface: {fileID: 0}
   sceneToLoad: Boss Level
   animator: {fileID: 0}
-  fadeTime: 1.2
+  fadeTime: 1
 --- !u!4 &771497513354701228 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4036bd46b062c49caa97ba5c22fbb4cc, type: 3}

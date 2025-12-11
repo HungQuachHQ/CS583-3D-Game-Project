@@ -8,11 +8,20 @@ public class PauseMenuController : MonoBehaviour {
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    public GameObject bonfire;
     public BonfireController bonfireController;
     public DeathMenuController deathMenuController;
 
     public Animator animator;
     public float fadeTime = 0.5f;
+
+    private void Start() {
+        animator = GameObject.Find("FadeToBlack").GetComponent<Animator>();
+        deathMenuController = GameObject.Find("DeathMenuCanvas").GetComponent<DeathMenuController>();
+
+        bonfire = GameObject.Find("Bonfire");
+        bonfireController = bonfire != null ? bonfire.GetComponent<BonfireController>() : null;
+    }
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {

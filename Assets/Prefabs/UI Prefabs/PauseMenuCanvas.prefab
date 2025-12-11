@@ -799,4 +799,4 @@ MonoBehaviour:
   bonfireController: {fileID: 0}
   deathMenuController: {fileID: 0}
   animator: {fileID: 0}
-  fadeTime: 1.2
+  fadeTime: 1

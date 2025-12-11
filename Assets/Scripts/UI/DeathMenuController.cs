@@ -10,24 +10,28 @@ public class DeathMenuController : MonoBehaviour {
     public Animator animator;
     public string currentScene;
     public string startScene;
-    public float fadeTime = 0.5f;
+    public float fadeToBlack = 1f;
+    public float fadeToScene = 0.5f;
+
+    private bool hasTriggeredDeath = false;
 
     public bool IsDeathMenuOpen => deathMenuUI.activeSelf;
 
     void Start() {
         playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        animator = GameObject.Find("FadeToBlack").GetComponent<Animator>();
     }
 
     void Update() {
-        if (playerHealth.isDead) {
+        if (playerHealth.isDead && !hasTriggeredDeath) {
+            hasTriggeredDeath = true;
             animator.Play("FadeToBlack");
-
             StartCoroutine(DelayFade());
         }
     }
 
     IEnumerator DelayFade() { 
-        yield return new WaitForSeconds(fadeTime);
+        yield return new WaitForSeconds(fadeToBlack);
         deathMenuUI.SetActive(true);
 
         Time.timeScale = 0f;
@@ -36,7 +40,15 @@ public class DeathMenuController : MonoBehaviour {
     }
 
     public void RestartClick() {
+        StartCoroutine(RestartFadeAndLoad());
+    }
+
+    IEnumerator RestartFadeAndLoad() {
         Time.timeScale = 1f;
+
+        animator.Play("FadeToBlack");
+        yield return new WaitForSecondsRealtime(fadeToScene);
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -44,7 +56,14 @@ public class DeathMenuController : MonoBehaviour {
     }
 
     public void MenuClick() {
+        StartCoroutine(MenuFadeAndLoad());
+    }
+
+    IEnumerator MenuFadeAndLoad() {
         Time.timeScale = 1f;
+
+        animator.Play("FadeToBlack");
+        yield return new WaitForSecondsRealtime(fadeToScene);
 
         SceneManager.LoadScene(startScene);
     }
