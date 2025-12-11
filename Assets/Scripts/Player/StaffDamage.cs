@@ -12,6 +12,8 @@ public class StaffDamage : MonoBehaviour {
 
     void Start() {
         playerDamage = player.GetComponent<PlayerAttack>();
+        player = GameObject.Find("Player");
+        playerTransform = player.transform;
     }
 
     private void OnTriggerEnter(Collider other) {
