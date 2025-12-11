@@ -1125,6 +1125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 192449620}
   fadeTime: 1
+  sceneToLoad: Dungeon1
 --- !u!1 &1352028876
 GameObject:
   m_ObjectHideFlags: 0
