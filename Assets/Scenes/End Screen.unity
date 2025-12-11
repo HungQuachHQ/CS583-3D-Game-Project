@@ -1297,7 +1297,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endingOptions: {fileID: 2110298228}
-  creditsDuration: 26
+  creditsDuration: 27
   sceneToLoad: Start Screen
 --- !u!1 &2083646915
 GameObject:
