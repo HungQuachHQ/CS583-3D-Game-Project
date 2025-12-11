@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292ded4ae176fc8438df64df6fe245c1, type: 3}
+  m_Name: AttackPotion
+  m_EditorClassIdentifier: 
+  itemId: attack_potion_01
+  displayName: Attack Potion
+  description: Gain 2 attack points for 20 seconds.
+  icon: {fileID: 21300000, guid: fd05515bb5b09604bb8e19adbb13b4ab, type: 3}
+  itemType: 2
+  weaponType: 0
+  physicalDamageBonus: 0
+  magicDamageBonus: 0
+  isStackable: 0
+  maxStackSize: 1
+  consumableType: 3
+  healFraction: 0
+  speedMultiplier: 1
+  buffDurationSeconds: 20
+  attackBonusPerPotion: 2
+  defenseBonusPerPotion: 0
+  maxAttackBonusFromPotions: 10
+  maxDefenseBonusFromPotions: 10

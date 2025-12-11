@@ -8,7 +8,7 @@ public class BonfireController : MonoBehaviour {
     public GameObject bonfireInterface;
 
     private bool playerInRange = false;
-    public bool IsBonfireOpen => bonfireInterface.activeSelf;
+    public bool IsBonfireOpen => bonfireInterface != null && bonfireInterface.activeSelf;
 
     public string sceneToLoad;
     public Animator animator;

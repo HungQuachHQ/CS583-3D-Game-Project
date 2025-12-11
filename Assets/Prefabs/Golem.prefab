@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 2904895754631974244}
   - component: {fileID: 5734869236394628942}
   - component: {fileID: 4503156191227038772}
+  - component: {fileID: -829040077779782537}
   m_Layer: 8
   m_Name: Golem
   m_TagString: Boss
@@ -1094,6 +1095,19 @@ MonoBehaviour:
   currentHealth: 0
   isHurt: 0
   isDead: 0
+--- !u!114 &-829040077779782537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3163274425747927037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646c9b2256fd5fc4daa1d81241d34b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xpValue: 200
 --- !u!1 &3269925750766472694
 GameObject:
   m_ObjectHideFlags: 0

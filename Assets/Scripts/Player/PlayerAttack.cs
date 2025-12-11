@@ -14,15 +14,24 @@ public class PlayerAttack : MonoBehaviour {
 
     public float damage;
 
+    private PlayerStats playerStats;
+
     void Start() {
         Transform cameraTransform = GameObject.Find("PlayerCamera").transform;
         Transform armTransform = cameraTransform.Find("Arms");
 
         armAnimator = armTransform.GetComponent<Animator>();
         source = GetComponent<AudioSource>();
+
+        playerStats = GetComponent<PlayerStats>();
     }
 
     void Update() {
+        if (playerStats != null) 
+        {
+            damage = playerStats.currentPhysicalDamage;
+        }
+
         if (Input.GetMouseButtonDown(0) && !isAttacking && Time.timeScale != 0f) {
             Attack();
         }

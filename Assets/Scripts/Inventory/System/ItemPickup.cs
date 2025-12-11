@@ -15,7 +15,7 @@ public class ItemPickup : MonoBehaviour
 
     private void Reset()
     {
-        //Ensure collider is a trigger
+        // Ensure collider is a trigger
         Collider col = GetComponent<Collider>();
         col.isTrigger = true;
     }
@@ -23,11 +23,25 @@ public class ItemPickup : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log($"[ItemPickup] OnTriggerEnter with {other.name}");
-        
+
         if (IsPlayerCollider(other))
         {
             playerInRange = true;
-            Debug.Log($"Player entered pickup range for {itemData.displayName}");
+            Debug.Log($"Player entered pickup range for {itemData?.displayName}");
+
+            // Only show prompt if manual pickup
+            if (!autoPickup && PickupPromptUI.Instance != null)
+            {
+                string label = itemData != null ? itemData.displayName : "item";
+                string keyName = pickupKey.ToString();   // e.g. "E"
+
+                PickupPromptUI.Instance.Show(this, $"Press {keyName} to pick up {label}");
+            }
+
+            if (autoPickup)
+            {
+                TryPickup();
+            }
         }
     }
 
@@ -40,20 +54,19 @@ public class ItemPickup : MonoBehaviour
             playerInRange = false;
             Debug.Log($"[ItemPickup] Player left range for {itemData?.displayName}");
 
+            if (PickupPromptUI.Instance != null)
+            {
+                // Only hide if this pickup owns the prompt
+                PickupPromptUI.Instance.Hide(this);
+            }
         }
     }
 
     private bool IsPlayerCollider(Collider col)
     {
-        //Directly tagged?
         if (col.CompareTag("Player")) return true;
-
-        //Root object tagged player?
         if (col.transform.root != null && col.transform.root.CompareTag("Player")) return true;
-
-
-        //Parent chain has a playerStats or another 'player' script
-        if (col.GetComponentInParent<PlayerStats>() != null)  return true;
+        if (col.GetComponentInParent<PlayerStats>() != null) return true;
 
         return false;
     }
@@ -61,32 +74,27 @@ public class ItemPickup : MonoBehaviour
     private void Update()
     {
         if (!playerInRange) return;
+        if (autoPickup) return;
 
-        if (autoPickup)
+        if (Input.GetKeyDown(pickupKey))
         {
+            Debug.Log("[ItemPickup] Pickup key pressed.");
             TryPickup();
-        }
-        else
-        {
-            if (Input.GetKeyDown(pickupKey))
-            {
-                Debug.Log("[ItemPickup] Pickup key pressed.");
-                TryPickup();
-            }
         }
     }
 
     private void TryPickup()
     {
-        if (Inventory.Instance == null)
+        if (itemData == null)
         {
             Debug.LogError("[ItemPickup] itemData is NULL on the pickup!", this);
             return;
         }
 
-        if(Inventory.Instance == null)
+        if (Inventory.Instance == null)
         {
             Debug.LogError("[ItemPickup] No Inventory.Instance found in scene!");
+            return;
         }
 
         Debug.Log($"[ItemPickup] Trying to add item: {itemData.displayName}");
@@ -94,6 +102,13 @@ public class ItemPickup : MonoBehaviour
         if (added)
         {
             Debug.Log($"[ItemPickup] Successfully picked up: {itemData.displayName}");
+
+            // Hide prompt if we were showing one
+            if (PickupPromptUI.Instance != null)
+            {
+                PickupPromptUI.Instance.Hide(this);
+            }
+
             Destroy(gameObject);
         }
         else

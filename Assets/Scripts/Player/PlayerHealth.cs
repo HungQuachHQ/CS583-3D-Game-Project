@@ -15,14 +15,39 @@ public class PlayerHealth : MonoBehaviour {
     public bool isHurt = false;
     public bool isDead = false;
 
+    private float levelBonusMaxHealth = 0f;
+
+
+    private PlayerStats playerStats;
+
+    public void ApplyMaxHealthBonus(float bonus)
+    {
+        //Remove old bonus, apply new
+        maxHealth = maxHealth - levelBonusMaxHealth + bonus;
+        levelBonusMaxHealth = bonus;
+
+        //Update slider
+        slider.maxValue = maxHealth;
+
+        //Heal the full on level up (optional -remove if you don't want this)
+        currentHealth = maxHealth;
+        playerHealth = maxHealth;
+        slider.value = currentHealth;
+    }
+
     void Start() {
         source = GetComponent<AudioSource>();
+
+        playerStats = GetComponent<PlayerStats>();
 
         playerHealth = maxHealth;
         currentHealth = maxHealth;
 
-        slider.maxValue = maxHealth;
-        slider.value = currentHealth;
+        if (slider != null)
+        {
+            slider.maxValue = maxHealth;
+            slider.value = currentHealth;
+        }
     }
 
     void Update() {
@@ -30,6 +55,12 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     private void HandleHealth() {
+        // Always keep the slider in sync with current health 
+        if(slider != null)
+        {
+            slider.value = currentHealth;
+        }
+        
         if (currentHealth < playerHealth && !isDead) {
             playerHealth = currentHealth;
             slider.value = currentHealth;
@@ -40,13 +71,23 @@ public class PlayerHealth : MonoBehaviour {
             isHurt = false;
         }
 
-        if (currentHealth <= 0) {
+        if (currentHealth <= 0 && !isDead) {
             isDead = true;
+            //Todo: trigger death logic if desired?
         }
     }
 
     public void TakeDamage(float damage) {
-        currentHealth -= damage;
+        float finalDamage = damage;
+
+        if(playerStats != null)
+        {
+            finalDamage -= playerStats.currentDefense;
+            if (finalDamage < 1f) finalDamage = 1f;
+        }
+
+        currentHealth -= finalDamage;
+        currentHealth = Mathf.Max(currentHealth, 0f);
         PlayHurtSFX();
     }
 

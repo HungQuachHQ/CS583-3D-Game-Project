@@ -16,6 +16,17 @@ public class PauseMenuController : MonoBehaviour {
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
+
+            //If inventory is open, close it first and do nothing else
+            // Prevent pause menu from opening on top of the inventory
+            InventoryUI inventory = FindObjectOfType<InventoryUI>();
+            if (inventory != null && inventory.IsOpen)
+            {
+                inventory.CloseInventory();
+                return;
+            }
+
+
             if (bonfireController != null && bonfireController.IsBonfireOpen) {
                 bonfireController.CloseBonfireUI();
                 return;
@@ -47,6 +58,12 @@ public class PauseMenuController : MonoBehaviour {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+
+        //Hide pickup prompt while paused
+        if (PickupPromptUI.Instance != null)
+        {
+            PickupPromptUI.Instance.HideImmediate();
+        }
 
         // Unlock and make the cursor visible when the game is paused.
         Cursor.visible = true;
