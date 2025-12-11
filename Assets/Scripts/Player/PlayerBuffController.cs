@@ -9,6 +9,7 @@ public class PlayerBuffController : MonoBehaviour
     PlayerStats stats;
     PlayerHealth health;
     PlayerMovement movement;
+    AudioSource source;
 
     float baseMoveSpeed;
 
@@ -26,13 +27,42 @@ public class PlayerBuffController : MonoBehaviour
     public float AttackBuffRemaining => attackBuffRemaining;
     public float DefenseBuffRemaining => defenseBuffRemaining;
 
+    // ----------- POTION SOUND EFFECTS -----------
+    [Header("Potion Sound Effects")]
+    public AudioClip healthPotionSFX;
+    public AudioClip staminaPotionSFX;
+    public AudioClip attackPotionSFX;
+    public AudioClip defensePotionSFX;
+    public AudioClip genericPotionSFX;    // Fallback if specific sound not assigned
+
     private void Awake()
     {
         stats = GetComponent<PlayerStats>();
         health = GetComponent<PlayerHealth>();
         movement = GetComponent<PlayerMovement>();
+        source = GetComponent<AudioSource>();
+
+        // Add AudioSource if missing
+        if (source == null)
+        {
+            source = gameObject.AddComponent<AudioSource>();
+        }
 
         baseMoveSpeed = movement.moveSpeed;
+    }
+
+    // ----------- SOUND HELPER -----------
+    private void PlayPotionSound(AudioClip clip)
+    {
+        if (SoundManager.instance == null || source == null) return;
+
+        // Use specific clip or fallback to generic
+        AudioClip soundToPlay = clip != null ? clip : genericPotionSFX;
+
+        if (soundToPlay != null)
+        {
+            SoundManager.instance.PlayAudio(soundToPlay, source);
+        }
     }
 
     // ---------- HEALTH POTION ----------
@@ -43,7 +73,8 @@ public class PlayerBuffController : MonoBehaviour
 
         float restore = health.maxHealth * healFraction;
         health.currentHealth = Mathf.Min(health.currentHealth + restore, health.maxHealth);
-        // PlayerHealth.Update() already syncs the slider
+
+        PlayPotionSound(healthPotionSFX);
     }
 
     // ---------- STAMINA / SPEED POTION ----------
@@ -59,6 +90,8 @@ public class PlayerBuffController : MonoBehaviour
             StopCoroutine(staminaRoutine);
 
         staminaRoutine = StartCoroutine(StaminaBuffCoroutine(speedMultiplier));
+
+        PlayPotionSound(staminaPotionSFX);
     }
 
     private IEnumerator StaminaBuffCoroutine(float speedMultiplier)
@@ -98,6 +131,8 @@ public class PlayerBuffController : MonoBehaviour
             StopCoroutine(attackRoutine);
 
         attackRoutine = StartCoroutine(AttackBuffCoroutine());
+
+        PlayPotionSound(attackPotionSFX);
     }
 
     private IEnumerator AttackBuffCoroutine()
@@ -134,6 +169,8 @@ public class PlayerBuffController : MonoBehaviour
             StopCoroutine(defenseRoutine);
 
         defenseRoutine = StartCoroutine(DefenseBuffCoroutine());
+
+        PlayPotionSound(defensePotionSFX);
     }
 
     private IEnumerator DefenseBuffCoroutine()

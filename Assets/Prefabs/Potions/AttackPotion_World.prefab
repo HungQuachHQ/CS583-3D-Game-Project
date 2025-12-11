@@ -98,6 +98,8 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 94fb9751adb708e4d8643d77a0f40dd3, type: 2}
   autoPickup: 0
   pickupKey: 101
+  pickupSFX: {fileID: 8300000, guid: eb6999f802d32aa4d8f050f463638071, type: 3}
+  pickupVolume: 1
 --- !u!1001 &5735120209787931678
 PrefabInstance:
   m_ObjectHideFlags: 0

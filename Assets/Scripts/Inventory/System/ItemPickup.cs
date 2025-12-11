@@ -11,6 +11,11 @@ public class ItemPickup : MonoBehaviour
     [Tooltip("Key to press to pick up if autoPickup is false.")]
     public KeyCode pickupKey = KeyCode.E;
 
+    [Header("Sound Effects")]
+    public AudioClip pickupSFX;
+    [Range(0f, 1f)]
+    public float pickupVolume = 1f;
+
     private bool playerInRange = false;
 
     private void Reset()
@@ -99,9 +104,13 @@ public class ItemPickup : MonoBehaviour
 
         Debug.Log($"[ItemPickup] Trying to add item: {itemData.displayName}");
         bool added = Inventory.Instance.AddItem(itemData);
+
         if (added)
         {
             Debug.Log($"[ItemPickup] Successfully picked up: {itemData.displayName}");
+
+            // Play pickup sound
+            PlayPickupSound();
 
             // Hide prompt if we were showing one
             if (PickupPromptUI.Instance != null)
@@ -114,6 +123,15 @@ public class ItemPickup : MonoBehaviour
         else
         {
             Debug.Log("[ItemPickup] Could not pick up item. Inventory might be full.");
+        }
+    }
+
+    private void PlayPickupSound()
+    {
+        if (pickupSFX != null)
+        {
+            // PlayClipAtPoint survives this object's destruction
+            AudioSource.PlayClipAtPoint(pickupSFX, transform.position, pickupVolume);
         }
     }
 }

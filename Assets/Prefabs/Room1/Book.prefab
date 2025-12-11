@@ -124,3 +124,5 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 26ae8110cca22f14baec667dd018409b, type: 2}
   autoPickup: 0
   pickupKey: 101
+  pickupSFX: {fileID: 8300000, guid: eb6999f802d32aa4d8f050f463638071, type: 3}
+  pickupVolume: 1
