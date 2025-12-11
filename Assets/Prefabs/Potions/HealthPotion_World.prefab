@@ -72,7 +72,7 @@ MonoBehaviour:
   autoPickup: 0
   pickupKey: 101
   pickupSFX: {fileID: 8300000, guid: eb6999f802d32aa4d8f050f463638071, type: 3}
-  pickupVolume: 0.25
+  pickupVolume: 0.1
 --- !u!54 &5772864439263719494
 Rigidbody:
   m_ObjectHideFlags: 0
