@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64f383829b8ea1478f0819bb92a9334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basePhysicalDamage: 5
+  basePhysicalDamage: 10
   baseMagicDamage: 2
   baseDefense: 0
   currentPhysicalDamage: 0
