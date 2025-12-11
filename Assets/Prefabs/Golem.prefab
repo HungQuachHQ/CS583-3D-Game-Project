@@ -880,7 +880,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1091,7 +1091,7 @@ MonoBehaviour:
   hurtSFX: {fileID: 8300000, guid: 41d54b0f10fc57c4fbfd4b7291e9fb35, type: 3}
   deathSFX: {fileID: 8300000, guid: b4f97bc90f1acfd41b98571a537f7463, type: 3}
   deathEffect: {fileID: 5323623109341601130}
-  health: 500
+  health: 200
   currentHealth: 0
   isHurt: 0
   isDead: 0

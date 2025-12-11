@@ -2809,6 +2809,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8627252333872143764, guid: 8cdecdf11697ba643977d9725978d715, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2836,10 +2840,6 @@ PrefabInstance:
     - target: {fileID: 3163274425747927037, guid: 0dae106aead8a2042896567232cc6557, type: 3}
       propertyPath: m_Name
       value: Golem
-      objectReference: {fileID: 0}
-    - target: {fileID: 3584850766057504316, guid: 0dae106aead8a2042896567232cc6557, type: 3}
-      propertyPath: m_Volume
-      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4233760715257958502, guid: 0dae106aead8a2042896567232cc6557, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2880,10 +2880,6 @@ PrefabInstance:
     - target: {fileID: 4233760715257958502, guid: 0dae106aead8a2042896567232cc6557, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4503156191227038772, guid: 0dae106aead8a2042896567232cc6557, type: 3}
-      propertyPath: health
-      value: 250
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

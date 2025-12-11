@@ -17,6 +17,10 @@ public class EndingManager : MonoBehaviour {
     }
 
     void Update() {
+        if (Time.timeScale == 0f) {
+            Time.timeScale = 1f;
+        }
+
         if (EnemyManager.Instance.AllEnemiesDefeated() && !endingTriggered) {
             endingTriggered = true;
 
