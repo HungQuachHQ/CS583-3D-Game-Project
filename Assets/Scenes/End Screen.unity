@@ -477,7 +477,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -225, y: 0}
-  m_SizeDelta: {x: 400, y: 1000}
+  m_SizeDelta: {x: 400, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &652693523
 MonoBehaviour:
@@ -509,11 +509,15 @@ MonoBehaviour:
     Assets
 
 
-    Music Assets
+    SFX & VFX
 
 
-    Level
-    Design
+
+    Music
+    Assets
+
+
+    Level Design
 
 
 
@@ -523,13 +527,13 @@ MonoBehaviour:
     Lighting System
 
 
-    Player & Enemies
+    Player
+    & Enemies
 
     Control
 
 
-    User
-    Interface'
+    User Interface'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1036,7 +1040,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 225, y: 0}
-  m_SizeDelta: {x: 400, y: 1000}
+  m_SizeDelta: {x: 400, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1813364049
 MonoBehaviour:
@@ -1071,26 +1075,32 @@ MonoBehaviour:
     Quach
 
 
+    Jonah Ulrich
+
+    Hung Quach
+
+
     Hung Quach
 
 
     Jonah Ulrich
 
-    Kane Cruz-Walker
+    Kane
+    Cruz-Walker
 
 
     Kane Cruz-Walker
 
 
-    Jonah
-    Ulrich
+    Jonah Ulrich
 
 
     Hung Quach
 
 
 
-    Hung Quach
+    Hung
+    Quach
 
     Kane Cruz-Walker'
   m_isRightToLeft: 0
